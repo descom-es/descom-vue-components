@@ -6,7 +6,7 @@
   "scripts": {
     "test": "ava"
   },
-  "homepage": "https://github.com/descom-es/descom-vue-component",
+  "homepage": "https://github.com/descom-es/descom-vue-components",
   "author": "Cesar Garcia",
   "repository": {
     "type": "git",
