@@ -6,6 +6,13 @@
   "scripts": {
     "test": "ava"
   },
+  "homepage": "https://github.com/descom-es/descom-vue-component",
+  "author": "Cesar Garcia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/descom-es/descom-vue-components.git"
+  },
+  "license": "ISC",
   "dependencies": {
     "vue": "^2.6.10"
   },
@@ -79,5 +86,8 @@
     "require": [
       "./test/helpers/setup.js"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/descom-es/descom-vue-components/issues"
   }
 }
