@@ -17,22 +17,33 @@ export default {
     formatFull: {
       type: String,
       default: "D MMMM YYYY HH:mm"
+    },
+    formatShort: {
+      type: String,
+      default: 'calendar',
+      validator: (value) => {
+        if (['calendar', 'from'].indexOf(value) !== -1) {
+          return true;
+        }
+
+        return moment('2019-10-01 18:30:00', DATE_FORMAT).format(DATE_FORMAT) === '2019-10-01 18:30:00'
+      }
     }
   },
   data: () => {
     return {
-      type: "calendar"
+      type: "short"
     };
   },
   methods: {
     changeDateFormat() {
-      this.type = this.type === "full" ? "calendar" : "full";
+      this.type = this.type === "full" ? "short" : "full";
     },
     showDate() {
       if (this.type === "full") {
         return this.dateInFullFormat();
-      } else if (this.type === "calendar") {
-        return this.dateInCalendarFormat();
+      } else if (this.type === "short") {
+        return this.dateInShortFormat();
       }
 
       return this.date;
@@ -44,9 +55,14 @@ export default {
 
       return null;
     },
-    dateInCalendarFormat() {
+    dateInShortFormat() {
       if (this.date) {
-        return moment(this.date).calendar();
+        if (this.formatShort === 'calendar') {
+          return moment(this.date).calendar();
+        } else if (this.formatShort === 'from') {
+          return moment(this.date).fromNow();
+        }
+
       }
 
       return null;

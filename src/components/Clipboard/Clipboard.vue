@@ -1,11 +1,11 @@
 <template>
   <div
-    class="copy2clipboard tooltip"
+    class="copy2clipboard"
     @mouseover="showButton()"
     @mouseleave="hideButton()"
   >
     <slot></slot>
-    <button v-if="showbutton" :class="buttonClass" @click="copyToClipboard()">
+    <button v-if="showbutton" class="tooltipcb" :class="buttonClass" @click="copyToClipboard()">
       <svg
         aria-hidden="true"
         focusable="false"
@@ -36,6 +36,10 @@ export default {
     buttonClass: {
       type: String,
       default: "copy2clipboard-button"
+    },
+    buttonPosition: {
+      type: String,
+      default: 'right'
     }
   },
   data: () => {
@@ -76,9 +80,18 @@ export default {
   display: inline;
 }
 
+.copy2clipboard-left {
+  float: left;
+}
+
+.copy2clipboard-right {
+  float: right;
+}
+
 .copy2clipboard > button {
-  position: absolute;
+  float: left;
   border: 0px;
+  padding: 0px 5px 0px 0px;
 }
 .copy2clipboard-button {
   background-color: #fff;
@@ -91,12 +104,12 @@ export default {
   width: 0.8rem;
 }
 
-.tooltip {
+.tooltipcb {
   position: relative;
   display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.tooltipcb .tooltiptext {
   visibility: hidden;
   width: 140px;
   background-color: #555;
@@ -113,7 +126,7 @@ export default {
   transition: opacity 0.3s;
 }
 
-.tooltip .tooltiptext::after {
+.tooltipcb .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -124,7 +137,7 @@ export default {
   border-color: #555 transparent transparent transparent;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltipcb:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
