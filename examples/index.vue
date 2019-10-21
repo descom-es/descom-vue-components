@@ -17,6 +17,18 @@
       </h2>
       <print-date date="2019-10-18 13:50:55"></print-date>
     </div>
+    <div>
+      <h2>
+        Mostrar la fecha en modo desde hace, pulsa sobre ella para ver el formato completo
+      </h2>
+      <print-date date="2019-10-18 13:50:55" format-short="from"></print-date>
+    </div>
+    <div>
+      <h2>
+        Mostrar la fecha con diferentees formatos
+      </h2>
+      <print-date date="2019-10-18 13:50:55" format-short="YY MM D" format-full="YYYY MMMM D HH:mm"></print-date>
+    </div>
   </div>
 </template>
 
